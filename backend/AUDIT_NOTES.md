@@ -1,11 +1,11 @@
-# Backend Audit Notes
+# Backend Pipeline Audit Details (Chunks 16-19)
+Date: August 27, 2026
 
-## Findings & Fixes
-- **Global Error Handling**: Modified `handle_exception` in `app/__init__.py` to log errors internally and surface a generic "Internal Server Error" (500) to the client, preventing stack trace leaks.
-- **Skill Detection Boundaries**: Refactored the regex matching in `utils/skill_detector.py` to use negative lookbehinds/lookaheads (`(?<![\w])` and `(?![\w])`) instead of `\b`. This handles skills containing special characters (like `C++` or `.NET`) accurately without triggering falsely inside unrelated words.
-- **AI Feedback Timeout**: Appended an explicit 15-second `timeout` to the `generate_content` call within `utils/ai_feedback.py` via `request_options` to ensure that standard AI analysis requests never hang indefinitely. Also centralized `LLM_API_KEY` to load via `current_app.config`.
-- **FAISS Edge Conditions**: Enhanced logic in `services/analysis_service.py` to check for empty or unextractable `resume.extracted_text`. If empty, it immediately returns a default payload bypassing FAISS index allocation and vector search, gracefully preventing application crashes.
-- **Python 3.8 Compatibility**: Updated `requirements.txt` to strictly bound package versions known to drop Python 3.8 support. Pinned `sentence-transformers<3.0.0`, `numpy<2.0.0`, and `scipy<1.11.0`.
+## Objective
+Conducted a robust regression and stability pass targeting the integration layers between legacy analysis flow (Chunk 7) and new deterministic features (Chunks 16-19).
 
-## Outcome
-The backend API configuration is robust, properly handles extreme string matches and null buffers, prevents stack overflow timeouts, and guarantees cross-platform startup compatibility as targeted.
+## Audit Findings & Fixes
+- **Vulnerability**: Identified that deterministic dependencies (`check_ats_structure`, `get_resources_for_skills`, `build_improvement_summary`) inside `analysis_service.py` natively invoked functions without bounding exceptions. A crash inherently caused 500 server resets on the core upload mechanism.
+- **Fix Applied**: Wrapped each new heuristic execution locally with Python `try/except` clauses. Sub-pipelines degrade gracefully logging errors while initializing synthetic default structures (e.g. dict arrays signaling complete failure metrics for ATS sections gracefully passing rendering parameters forward) averting core 500 status collapses.
+- **Data Extrapolation Check**: Tracked attribute routing in `analysis_controller.py`. Identified that legacy DB fetches prior to Alembic migrations might raise severe `KeyError` regressions on output formulation mapping variables that never existed in prior iterations.
+- **Controller Mitigation**: Swapped direct payload indexing (`analysis.missing_sections`) with explicit declarative getattr checks mapping fallback arrays natively (e.g., `getattr(analysis, 'missing_sections', [])`) resolving backward compatibility parsing on previously established historical analysis sessions securely.
