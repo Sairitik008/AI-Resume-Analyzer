@@ -1,0 +1,161 @@
+// ─── Page ─────────────────────────────────────────────────────────────────────
+.page {
+    padding: $spacing-xl 0;
+    max-width: 860px;
+    margin: 0 auto;
+}
+
+.pageHeader {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: $spacing-md;
+    margin-bottom: $spacing-xl;
+    flex-wrap: wrap;
+}
+
+.heading {
+    font-size: 1.625rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0 0 $spacing-xs;
+}
+
+.subheading {
+    font-size: 0.9375rem;
+    color: var(--text-secondary);
+    margin: 0;
+    line-height: 1.6;
+}
+
+// ─── History list ─────────────────────────────────────────────────────────────
+.list {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-md;
+}
+
+// ─── History card (as link) ───────────────────────────────────────────────────
+.historyLink {
+    display: block;
+    text-decoration: none;
+    transition: transform 0.15s, box-shadow 0.15s;
+
+    &:hover .historyCard {
+        box-shadow: var(--shadow-md);
+        transform: translateY(-1px);
+    }
+}
+
+.historyCard {
+    background: var(--bg-surface);
+    border: 1px solid var(--color-border);
+    border-radius: $radius-lg;
+    box-shadow: var(--shadow-sm);
+    padding: $spacing-lg $spacing-xl;
+    display: flex;
+    align-items: center;
+    gap: $spacing-xl;
+    transition: box-shadow 0.15s, transform 0.15s;
+
+    @media (max-width: $breakpoint-mobile) {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: $spacing-md;
+    }
+}
+
+.historyMeta {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-xs;
+}
+
+.historyTitle {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.historyResume {
+    font-size: 0.8125rem;
+    color: var(--text-secondary);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.historyDate {
+    font-size: 0.8125rem;
+    color: var(--text-secondary);
+}
+
+// ─── Score badge ──────────────────────────────────────────────────────────────
+.scoreBadge {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    flex-shrink: 0;
+}
+
+.scoreNumber {
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.scoreLabel {
+    font-size: 0.6875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--text-secondary);
+}
+
+// ─── Loading / error ─────────────────────────────────────────────────────────
+.loadingWrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: $spacing-md;
+    padding: $spacing-2xl 0;
+    color: var(--text-secondary);
+}
+
+.spinner {
+    width: 2rem;
+    height: 2rem;
+    border: 3px solid var(--color-border);
+    border-top-color: var(--color-primary);
+    border-radius: 50%;
+    animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.errorBanner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: $spacing-md;
+    padding: $spacing-2xl;
+    text-align: center;
+    color: var(--color-error);
+}
+
+.errorText {
+    font-size: 0.9375rem;
+    color: var(--text-secondary);
+    margin: 0;
+}

@@ -1,0 +1,69 @@
+// Variables and mixins are auto-injected by vite.config.ts preprocessorOptions
+
+.sidebar {
+    width: 250px;
+    height: 100vh;
+    background-color: var(--bg-surface);
+    border-right: 1px solid var(--color-border);
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: $z-sticky;
+    transition: transform 0.3s ease;
+
+    @include respond-to(mobile) {
+        transform: translateX(-100%);
+
+        &.mobileOpen {
+            transform: translateX(0);
+        }
+    }
+}
+
+.brand {
+    padding: $spacing-lg;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    border-bottom: 1px solid var(--color-border);
+    letter-spacing: -0.3px;
+}
+
+.nav {
+    flex: 1;
+    padding: $spacing-md 0;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.link {
+    display: flex;
+    align-items: center;
+    gap: $spacing-md;
+    padding: $spacing-sm $spacing-lg;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    border-radius: 0;
+    transition: background-color 0.15s ease, color 0.15s ease;
+    border-right: 3px solid transparent;
+
+    &:hover {
+        background-color: var(--bg-hover);
+        color: var(--text-primary);
+    }
+}
+
+.active {
+    background-color: var(--bg-hover);
+    color: var(--color-primary);
+    border-right-color: var(--color-primary);
+    font-weight: 600;
+}
+
+.navBottom {
+    padding: $spacing-md 0;
+    border-top: 1px solid var(--color-border);
+}

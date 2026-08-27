@@ -1,0 +1,59 @@
+// ─── Shared form-field wrapper ────────────────────────────────────────────────
+.fieldGroup {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-xs;
+}
+
+.label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+.input,
+.textarea {
+    width: 100%;
+    padding: 0.625rem $spacing-md;
+    font-size: 0.9375rem;
+    font-family: $font-primary;
+    color: var(--text-primary);
+    background: var(--bg-primary);
+    border: 1px solid var(--color-border);
+    border-radius: $radius-md;
+    transition: border-color 0.15s, box-shadow 0.15s;
+    box-sizing: border-box;
+
+    &::placeholder {
+        color: var(--text-secondary);
+        opacity: 0.7;
+    }
+
+    &:focus {
+        outline: none;
+        border-color: var(--color-primary);
+        box-shadow: 0 0 0 3px rgba(95, 158, 160, 0.18);
+    }
+
+    &.hasError {
+        border-color: var(--color-error);
+
+        &:focus {
+            box-shadow: 0 0 0 3px rgba(178, 34, 34, 0.15);
+        }
+    }
+}
+
+.textarea {
+    resize: vertical;
+    min-height: 140px;
+    line-height: 1.6;
+}
+
+.errorMsg {
+    font-size: 0.8125rem;
+    color: var(--color-error);
+    display: flex;
+    align-items: center;
+    gap: $spacing-xs;
+}

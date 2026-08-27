@@ -1,0 +1,31 @@
+// Variables and mixins are auto-injected by vite.config.ts preprocessorOptions
+
+
+.authLayout {
+    min-height: 100vh;
+    background-color: var(--bg-primary);
+    @include flex-center;
+    padding: $spacing-md;
+}
+
+.authCard {
+    width: 100%;
+    max-width: 440px;
+    padding: $spacing-2xl $spacing-xl;
+    text-align: center;
+    @include card-shadow;
+}
+
+.brand {
+    color: var(--color-primary);
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: $spacing-xs;
+    letter-spacing: -0.5px;
+}
+
+.tagline {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-bottom: $spacing-xl;
+}

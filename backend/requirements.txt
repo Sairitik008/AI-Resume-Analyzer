@@ -1,0 +1,16 @@
+flask
+flask-sqlalchemy
+flask-cors
+python-dotenv
+PyMySQL
+flask-migrate
+PyJWT
+marshmallow
+PyPDF2
+python-docx
+sentence-transformers<3.0.0
+faiss-cpu
+numpy<2.0.0
+scipy<1.11.0
+google-generativeai
+gunicorn

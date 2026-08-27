@@ -1,0 +1,99 @@
+// ─── Overlay ──────────────────────────────────────────────────────────────────
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(3px);
+    z-index: $z-modal;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: $spacing-md;
+    animation: fadeIn 0.15s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+// ─── Panel ────────────────────────────────────────────────────────────────────
+.panel {
+    background: var(--bg-surface);
+    border: 1px solid var(--color-border);
+    border-radius: $radius-lg;
+    box-shadow: var(--shadow-lg);
+    width: 100%;
+    max-height: calc(100vh - 2 * $spacing-md);
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    animation: slideUp 0.2s ease;
+
+    &.md {
+        max-width: 520px;
+    }
+
+    &.lg {
+        max-width: 720px;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(12px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+// ─── Header ───────────────────────────────────────────────────────────────────
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: $spacing-lg $spacing-xl;
+    border-bottom: 1px solid var(--color-border);
+    flex-shrink: 0;
+}
+
+.title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.closeBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    border: none;
+    border-radius: $radius-sm;
+    background: transparent;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s;
+
+    &:hover {
+        background: var(--bg-hover);
+        color: var(--text-primary);
+    }
+}
+
+// ─── Body ─────────────────────────────────────────────────────────────────────
+.body {
+    padding: $spacing-xl;
+    flex: 1;
+}

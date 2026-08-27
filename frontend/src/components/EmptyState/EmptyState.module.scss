@@ -1,0 +1,34 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: $spacing-2xl $spacing-xl;
+    text-align: center;
+    gap: $spacing-md;
+}
+
+.iconWrap {
+    width: 64px;
+    height: 64px;
+    border-radius: $radius-full;
+    background-color: var(--bg-hover);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-secondary);
+}
+
+.heading {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.description {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    max-width: 320px;
+    margin: 0;
+}

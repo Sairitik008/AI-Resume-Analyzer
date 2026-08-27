@@ -1,0 +1,27 @@
+.wrapper {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.label {
+    position: absolute;
+    display: flex;
+    align-items: baseline;
+    gap: 1px;
+    pointer-events: none;
+}
+
+.score {
+    font-size: 1.75rem;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.unit {
+    font-size: 0.875rem;
+    font-weight: 600;
+    line-height: 1;
+}

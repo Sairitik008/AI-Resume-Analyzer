@@ -1,0 +1,238 @@
+// ─── Page ─────────────────────────────────────────────────────────────────────
+.page {
+    padding: $spacing-xl 0;
+    max-width: 960px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-xl;
+}
+
+// ─── Welcome header ───────────────────────────────────────────────────────────
+.welcomeSection {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-xs;
+}
+
+.greeting {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.greetingDate {
+    font-size: 0.9375rem;
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+// ─── Stats row ────────────────────────────────────────────────────────────────
+.statsRow {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: $spacing-md;
+
+    @media (max-width: $breakpoint-mobile) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.statCard {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-xs;
+    padding: $spacing-lg;
+    background: var(--bg-surface);
+    border: 1px solid var(--color-border);
+    border-radius: $radius-lg;
+    box-shadow: var(--shadow-sm);
+}
+
+.statIcon {
+    color: var(--color-secondary);
+    margin-bottom: $spacing-xs;
+}
+
+.statValue {
+    font-size: 1.875rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    line-height: 1;
+    margin: 0;
+}
+
+.statValueSmall {
+    font-size: 1.5rem;
+}
+
+.statLabel {
+    font-size: 0.8125rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+// ─── Section label ────────────────────────────────────────────────────────────
+.sectionLabel {
+    font-size: 0.8125rem;
+    font-weight: 700;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin: 0 0 $spacing-md;
+}
+
+// ─── Quick actions ────────────────────────────────────────────────────────────
+.actionsGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: $spacing-md;
+
+    @media (max-width: $breakpoint-mobile) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.actionCard {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: $spacing-sm;
+    padding: $spacing-lg;
+    background: var(--bg-surface);
+    border: 1px solid var(--color-border);
+    border-radius: $radius-lg;
+    box-shadow: var(--shadow-sm);
+    text-decoration: none;
+    transition: box-shadow 0.15s, transform 0.15s, border-color 0.15s;
+
+    &:hover {
+        box-shadow: var(--shadow-md);
+        transform: translateY(-2px);
+        border-color: var(--color-secondary);
+    }
+
+    &.primary {
+        background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+        border-color: transparent;
+
+        .actionTitle,
+        .actionDesc {
+            color: var(--text-inverse);
+        }
+
+        .actionIcon {
+            color: rgba(255, 255, 255, 0.9);
+        }
+    }
+}
+
+.actionIcon {
+    color: var(--color-secondary);
+}
+
+.actionTitle {
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.actionDesc {
+    font-size: 0.8125rem;
+    color: var(--text-secondary);
+    margin: 0;
+    line-height: 1.4;
+}
+
+// ─── Recent activity ──────────────────────────────────────────────────────────
+.recentCard {
+    display: flex;
+    align-items: center;
+    gap: $spacing-xl;
+    padding: $spacing-lg $spacing-xl;
+    background: var(--bg-surface);
+    border: 1px solid var(--color-border);
+    border-radius: $radius-lg;
+    box-shadow: var(--shadow-sm);
+
+    @media (max-width: $breakpoint-mobile) {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: $spacing-md;
+    }
+}
+
+.recentMeta {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-xs;
+}
+
+.recentTitle {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.recentSub {
+    font-size: 0.8125rem;
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+.recentLink {
+    flex-shrink: 0;
+}
+
+// ─── Loading ─────────────────────────────────────────────────────────────────
+.loadingWrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: $spacing-md;
+    padding: 6rem 0;
+    color: var(--text-secondary);
+}
+
+.spinner {
+    width: 2rem;
+    height: 2rem;
+    border: 3px solid var(--color-border);
+    border-top-color: var(--color-primary);
+    border-radius: 50%;
+    animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.errorBanner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: $spacing-md;
+    padding: $spacing-2xl;
+    text-align: center;
+    color: var(--color-error);
+}
+
+.errorText {
+    font-size: 0.9375rem;
+    color: var(--text-secondary);
+    margin: 0;
+}

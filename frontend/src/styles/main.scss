@@ -1,0 +1,8 @@
+// ─── Main SCSS Entry Point ───────────────────────────────────────────────────
+// All component .module.scss files import _variables and _mixins directly.
+// This file loads the global base styles (reset, typography).
+
+@import 'abstracts/variables';
+@import 'abstracts/mixins';
+@import 'base/reset';
+@import 'base/typography';

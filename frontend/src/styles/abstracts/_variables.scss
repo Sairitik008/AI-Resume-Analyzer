@@ -1,0 +1,73 @@
+/* 
+  Earthy & Professional Palette. 
+  Instead of aggressive neon AI coloring, this leverages Slate and Sage to create a highly readable, stress-free user environment suited for job application tooling focusing on warmth rather than stark sci-fi.
+*/
+:root {
+  // Light Theme Variables
+  --bg-primary: #F8FAF9;
+  --bg-surface: #FFFFFF;
+  --bg-hover: #E8F0ED;
+
+  --text-primary: #1A2E2A;
+  --text-secondary: #4A5F59;
+  --text-inverse: #FFFFFF;
+
+  --color-primary: #2F4F4F;
+  --color-secondary: #5F9EA0;
+  --color-accent: #CD853F;
+  --color-border: #DDE8E4;
+
+  --color-success: #2E8B57;
+  --color-warning: #DAA520;
+  --color-error: #B22222;
+
+  // Shadows
+  --shadow-sm: 0 1px 2px rgba(47, 79, 79, 0.05);
+  --shadow-md: 0 4px 6px rgba(47, 79, 79, 0.1);
+  --shadow-lg: 0 10px 15px rgba(47, 79, 79, 0.15);
+}
+
+[data-theme='dark'] {
+  --bg-primary: #121817;
+  --bg-surface: #1E2624;
+  --bg-hover: #2A3633;
+
+  --text-primary: #E6EDE9;
+  --text-secondary: #A0B2AC;
+  --text-inverse: #121817;
+
+  --color-primary: #5F9EA0;
+  --color-secondary: #7CB9B5;
+  --color-border: #2A3633;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.2);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.4);
+}
+
+// SCSS Variables Map representing tokens
+$spacing-xs: 0.25rem;
+$spacing-sm: 0.5rem;
+$spacing-md: 1rem;
+$spacing-lg: 1.5rem;
+$spacing-xl: 2rem;
+$spacing-2xl: 3rem;
+
+$radius-sm: 4px;
+$radius-md: 8px;
+$radius-lg: 12px;
+$radius-full: 9999px;
+
+$font-primary: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+$font-mono: 'Fira Code', monospace;
+
+$z-negative: -1;
+$z-elevate: 10;
+$z-dropdown: 100;
+$z-sticky: 200;
+$z-modal: 1000;
+
+// Breakpoints
+$breakpoint-mobile: 768px;
+$breakpoint-tablet: 1024px;
+$breakpoint-desktop: 1280px;

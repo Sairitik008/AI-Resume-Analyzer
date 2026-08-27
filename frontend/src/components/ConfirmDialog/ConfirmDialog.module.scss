@@ -1,0 +1,12 @@
+.message {
+    font-size: 0.9375rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: $spacing-xl;
+}
+
+.actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: $spacing-md;
+}

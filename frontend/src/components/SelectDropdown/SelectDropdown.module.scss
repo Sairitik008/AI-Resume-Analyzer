@@ -1,0 +1,62 @@
+.fieldGroup {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-xs;
+}
+
+.label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+.selectWrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.select {
+    width: 100%;
+    padding: 0.625rem $spacing-md;
+    padding-right: 2.25rem; // room for arrow
+    font-size: 0.9375rem;
+    font-family: $font-primary;
+    color: var(--text-primary);
+    background: var(--bg-primary);
+    border: 1px solid var(--color-border);
+    border-radius: $radius-md;
+    appearance: none;
+    -webkit-appearance: none;
+    cursor: pointer;
+    transition: border-color 0.15s, box-shadow 0.15s;
+    box-sizing: border-box;
+
+    &:focus {
+        outline: none;
+        border-color: var(--color-primary);
+        box-shadow: 0 0 0 3px rgba(95, 158, 160, 0.18);
+    }
+
+    &.hasError {
+        border-color: var(--color-error);
+
+        &:focus {
+            box-shadow: 0 0 0 3px rgba(178, 34, 34, 0.15);
+        }
+    }
+}
+
+.arrow {
+    position: absolute;
+    right: $spacing-md;
+    pointer-events: none;
+    color: var(--text-secondary);
+    font-size: 0.75rem;
+    line-height: 1;
+}
+
+.errorMsg {
+    font-size: 0.8125rem;
+    color: var(--color-error);
+}

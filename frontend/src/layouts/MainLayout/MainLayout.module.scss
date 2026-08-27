@@ -1,0 +1,41 @@
+// Variables and mixins are auto-injected by vite.config.ts preprocessorOptions
+
+
+.layout {
+    display: flex;
+    min-height: 100vh;
+}
+
+.contentWrapper {
+    flex: 1;
+    margin-left: 250px;
+    display: flex;
+    flex-direction: column;
+    min-width: 0; // prevent flex overflow
+
+    @include respond-to(mobile) {
+        margin-left: 0;
+    }
+}
+
+.mainContent {
+    padding: $spacing-xl;
+    flex: 1;
+    background-color: var(--bg-primary);
+
+    @include respond-to(mobile) {
+        padding: $spacing-md;
+    }
+}
+
+.overlay {
+    display: none;
+
+    @include respond-to(mobile) {
+        display: block;
+        position: fixed;
+        inset: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: $z-sticky - 1;
+    }
+}

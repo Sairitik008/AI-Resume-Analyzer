@@ -1,0 +1,54 @@
+// ─── Mixin Library ────────────────────────────────────────────────────────────
+// Variables are imported here so any file that @imports _mixins gets both.
+
+@import 'variables';
+
+// Responsive – mobile-first
+@mixin respond-to($breakpoint) {
+    @if $breakpoint ==mobile {
+        @media (max-width: #{$breakpoint-mobile - 1px}) {
+            @content;
+        }
+    }
+
+    @else if $breakpoint ==tablet {
+        @media (min-width: #{$breakpoint-mobile}) and (max-width: #{$breakpoint-tablet - 1px}) {
+            @content;
+        }
+    }
+
+    @else if $breakpoint ==desktop {
+        @media (min-width: #{$breakpoint-tablet}) {
+            @content;
+        }
+    }
+}
+
+// Flex helpers
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin flex-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+// Text truncation
+@mixin truncate-text {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+// Card elevation
+@mixin card-shadow {
+    box-shadow: var(--shadow-md);
+    border-radius: $radius-md;
+    background-color: var(--bg-surface);
+    border: 1px solid var(--color-border);
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
